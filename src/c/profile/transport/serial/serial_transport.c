@@ -87,16 +87,16 @@ static uint8_t get_serial_error(void)
  * Public function definitions.
  *******************************************************************************/
 bool uxr_init_serial_transport(uxrSerialTransport* transport,
-                               struct uxrSerialPlatform* platfrom,
+                               struct uxrSerialPlatform* platform,
                                const int fd,
                                uint8_t remote_addr,
                                uint8_t local_addr)
 {
     bool rv = false;
-    if (uxr_init_serial_platform(platfrom, fd, remote_addr, local_addr))
+    if (uxr_init_serial_platform(platform, fd, remote_addr, local_addr))
     {
         /* Setup platform. */
-        transport->platform = platfrom;
+        transport->platform = platform;
 
         /* Setup address. */
         transport->remote_addr = remote_addr;
